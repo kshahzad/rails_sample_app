@@ -2,11 +2,16 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.3'
 
+group :production do
+gem 'pg', '0.12.2'
+end
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-group :development do
-gem 'sqlite3'
-gem 'rspec-rails', '2.11.0'
+group :development, :test do
+	gem 'sqlite3'
+	gem 'guard-rspec', '1.2.1'
+	gem 'rspec-rails', '2.11.0'
+	gem 'spork', '0.9.2'
 end
 
 
@@ -22,11 +27,10 @@ gem 'jquery-rails'
 
 group :test do
 	gem 'capybara', '1.1.2'
+	gem 'rb-inotify', '~> 0.9'
+	gem 'libnotify', '0.5.9'
 end
 
-group :production do
-	gem 'pg', '0.12.2'
-end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
